@@ -28,14 +28,14 @@ class Persona(models.Model):
 
 class Casa(models.Model):
     prop_casa = models.ForeignKey(Persona, on_delete=models.CASCADE,
-                               related_name="propietario")
+                               related_name="propietario_casa")
     direccion_casa = models.CharField(max_length=100)
     valor_casa = models.IntegerField()
     color = models.IntegerField()
     cuartos_casa = models.IntegerField()
     pisos = models.IntegerField()
     barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE,
-                               related_name="ubicacion")
+                               related_name="ubicacion_casa")
 
     def __str__(self):
         return "%s %s %s %s %s %s %s" % (self.prop_casa,
@@ -50,13 +50,13 @@ class Casa(models.Model):
 
 class Departamento(models.Model):
     prop_dept = models.ForeignKey(Persona, on_delete=models.CASCADE,
-                                  related_name="propietario")
+                                  related_name="propietario_dept")
     direccion_dept = models.CharField(max_length=100)
     valor_dept = models.IntegerField()
     cuartos_dept = models.IntegerField()
     mensualidad = models.IntegerField()
     barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE,
-                               related_name="ubicacion")
+                               related_name="ubicacion_dept")
 
     def __str__(self):
         return "%s %s %s %s %s %s" % (self.prop_dept,
