@@ -24,10 +24,10 @@ from administrativoCanton import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'barrio', views.EstudianteViewSet)
-router.register(r'persona', views.NumeroTelefonicoViewSet)
-router.register(r'casa', views.NumeroTelefonicoViewSet)
-router.register(r'departamento', views.NumeroTelefonicoViewSet)
+router.register(r'barrio', views.BarrioViewSet)
+router.register(r'persona', views.PersonaViewSet)
+router.register(r'casa', views.CasaViewSet)
+router.register(r'departamento', views.DepartamentoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

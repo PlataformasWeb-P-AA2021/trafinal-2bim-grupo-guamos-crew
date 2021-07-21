@@ -40,8 +40,8 @@
           <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
         {% endif %}
         <li><a href="{% url 'index' %}">inicio</a></li>
-        <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
-        <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
+        <li><a href="{% url 'crear_casa' %}">agregar Casa</a></li>
+        <li><a href="{% url 'crear_departamento' %}">agregar Departamento</a></li>
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}
