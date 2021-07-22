@@ -21,14 +21,17 @@ from administrativoCanton.models import *
 from administrativoCanton.forms import *
 
 def index(request):
+    return render(request,'index.html')
+
+def ver_casas(request):
     casas = Casa.objects.all()
     inf_template = {'casas':casas, 'num_casas':len(casas)}
-    return render(request, 'index.html', inf_template)
+    return render(request, 'verCasas.html', inf_template)
 
 def ver_departametos(request):
     departamentos = Departamento.objects.all()
     inf_template = {'casas':departamentos, 'num_casas':len(departamentos)}
-    return render(request, 'index.html', inf_template)
+    return render(request, 'verDepartamentos.html', inf_template)
 
 def ingreso(request):
 

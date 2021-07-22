@@ -76,9 +76,24 @@ body {
     text: #FFF;
   
   }
+
+    /*
+  Custom css
+  */
+
+  .tableCenter{
+    margin: auto;
+  }
+
+  .initialImages{
+    width: 50%;
+  } 
   
   footer{
     background: #5E5E5E;
     color: #FFF;
   }
-  
+ 
+
+
+

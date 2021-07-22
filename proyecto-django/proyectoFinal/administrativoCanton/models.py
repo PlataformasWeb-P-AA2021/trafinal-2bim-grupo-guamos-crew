@@ -16,7 +16,7 @@ class Persona(models.Model):
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=100)
     cedula = models.IntegerField()
-    correo = models.IntegerField()
+    correo = models.EmailField()
 
     def __str__(self):
         return "%s %s %s %s" % (self.nombres,
@@ -31,7 +31,7 @@ class Casa(models.Model):
                                related_name="propietario_casa")
     direccion_casa = models.CharField(max_length=100)
     valor_casa = models.IntegerField()
-    color = models.IntegerField()
+    color = models.CharField(max_length=20)
     cuartos_casa = models.IntegerField()
     pisos = models.IntegerField()
     barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE,

@@ -21,7 +21,7 @@ def los_barrios():
 
 
 @app.route("/persona")
-def los_barrios():
+def las_personas():
     """
     """
     r = requests.get("http://127.0.0.1:8000/api/persona/",

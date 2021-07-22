@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ui_xj=spf97-*j7y4hd%=gp=%5n%ijj5qj2+j)!1o2u7aa4m9w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1","167.99.192.225", "190.96.96.140", "192.168.0.105"]
 
 
 # Application definition
@@ -131,7 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/home/edgarfgm/Documentos/plataformasWeb/bimestre2/trafinal-2bim-grupo-guamos-crew/proyecto-django/proyectoFinal/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

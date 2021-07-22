@@ -20,7 +20,7 @@
     {% load socialaccount %}
     {% load account %}
   <header>
-    <img src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image">
+    <img src="{% static 'images/utpl_logo.png' %}" height="10%" width="10%" alt="My image">
     <h1> Proyecto Final Plataformas Web </h1>
     
 
@@ -42,6 +42,8 @@
         <li><a href="{% url 'index' %}">inicio</a></li>
         <li><a href="{% url 'crear_casa' %}">agregar Casa</a></li>
         <li><a href="{% url 'crear_departamento' %}">agregar Departamento</a></li>
+        <li><a href="{% url 'crear_persona' %}">agregar Persona</a></li>
+        <li><a href="{% url 'crear_barrio' %}">agregar Barrio</a></li>
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}
@@ -57,9 +59,11 @@
   </section>
 
     <footer>
-      <p>Loja-Ecuador</p>
-      <h2> Realizado por: Edgar Guamo M, Brandon Vega S.</h2>
-      <h2> Fecha de desarrollo: 19/07/2021 </h2>
+      <h3>Loja-Ecuador</h3>
+      <h3> Realizado por: Edgar Guamo M,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        Brandon Vega S.</h3>
+      <h3> Fecha de desarrollo: 19/07/2021 </h3>
     </footer>
   </body>
 </html>
