@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from administrativo.models import Barrio, Casa, Departamento, Persona
+from administrativoCanton.models import Barrio, Casa, Departamento, Persona
 
 
 class BarrioAdmin(admin.ModelAdmin):
