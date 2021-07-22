@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Casas</title>
+  </head>
+  <body>
+    <h5>Listado de Casas</h5>
+
+    {% for d in datos %}
+
+    <ol>
+      <li><b>Propietarios: </b>{{d['prop_casa']}}</li>
+      <li><b>Direccion: </b>{{d['direccion_casa']}}</li>
+      <li><b>Valor: </b>{{d['valor_casa']}}</li>
+      <li><b>Color: </b>{{d['color']}}</li>
+      <li><b>Cuartos: </b>{{d['cuartos_casa']}}</li>
+      <li><b>Pisos: </b>{{d['pisos']}}</li>
+      <li><b>Barrio: </b>{{d['barrio']}}</li>
+    </ol>
+    <hr>
+    {% endfor%}
+  </body>
+</html>

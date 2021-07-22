@@ -24,10 +24,10 @@ def los_barrios():
 def los_barrios():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/barrio/",
+    r = requests.get("http://127.0.0.1:8000/api/persona/",
                      auth=('platweb', 'contigoPipo-234'))
-    barrios = json.loads(r.content)
-    return render_template("losbarrios.html", barrios=barrios)
+    personas = json.loads(r.content)
+    return render_template("laspersonas.html", personas=personas)
 
 
 @app.route("/casas")
