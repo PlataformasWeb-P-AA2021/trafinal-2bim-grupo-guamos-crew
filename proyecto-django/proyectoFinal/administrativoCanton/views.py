@@ -30,7 +30,7 @@ def ver_casas(request):
 
 def ver_departametos(request):
     departamentos = Departamento.objects.all()
-    inf_template = {'casas':departamentos, 'num_casas':len(departamentos)}
+    inf_template = {'departamentos':departamentos, 'num_departamentos':len(departamentos)}
     return render(request, 'verDepartamentos.html', inf_template)
 
 def ingreso(request):
@@ -69,13 +69,15 @@ def crear_casa(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save() # se guarda en la base de datos
-            return redirect(index)
+            return redirect(ver_casas)
     else:
         formulario = CasaForm()
     diccionario = {'formulario': formulario}
 
     return render(request, 'crearCasa.html', diccionario)
-    
+
+@login_required(login_url='/entrando/login/')
+@permission_required('administrativoCanton.change_casa', login_url="/entrando/login/")    
 def editar_casa(request, id):
     """
     """
@@ -85,24 +87,27 @@ def editar_casa(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(ver_casas)
     else:
         formulario = CasaForm(instance=casa)
     diccionario = {'formulario': formulario}
 
     return render(request, 'editarCasa.html', diccionario)
 
+@login_required(login_url='/entrando/login/')
+@permission_required('administrativoCanton.delete_casa', login_url="/entrando/login/")  
 def eliminar_casa(request, id):
     """
     """
     casa = Casa.objects.get(pk=id)
     casa.delete()
-    return redirect(index)
+    return redirect(ver_casas)
 
 """
 CRUD Departamento
 """
-
+@login_required(login_url='/entrando/login/')
+@permission_required('administrativoCanton.change_departamento', login_url="/entrando/login/")  
 def crear_departamento(request):
     """
     """
@@ -112,13 +117,15 @@ def crear_departamento(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(ver_departametos)
     else:
         formulario = DepartamentoForm()
     diccionario = {'formulario': formulario}
 
     return render(request, 'crearDepartamento.html', diccionario)
 
+@login_required(login_url='/entrando/login/')
+@permission_required('administrativoCanton.change_departamento', login_url="/entrando/login/")  
 def editar_departamento(request, id):
     """
     """
@@ -128,19 +135,21 @@ def editar_departamento(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index)
+            return redirect(ver_departametos)
     else:
         formulario = DepartamentoForm(instance=departamento)
     diccionario = {'formulario': formulario}
 
     return render(request, 'editarDepartamento.html', diccionario)
 
+@login_required(login_url='/entrando/login/')
+@permission_required('administrativoCanton.delete_departamento', login_url="/entrando/login/")  
 def eliminar_departamento(request, id):
     """
     """
     departamento = Departamento.objects.get(pk=id)
     departamento.delete()
-    return redirect(index)
+    return redirect(ver_departametos)
 
 """
 CRUD Persona
@@ -255,7 +264,6 @@ class CasaViewSet(viewsets.ModelViewSet):
     # permission_classes = [permissions.IsAuthenticated]
 
 
-# class NumeroTelefonicoViewSet(viewsets.ModelViewSet):
 class DepartamentoViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.

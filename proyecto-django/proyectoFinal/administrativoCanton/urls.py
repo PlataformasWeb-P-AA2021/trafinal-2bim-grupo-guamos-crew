@@ -18,7 +18,7 @@ urlpatterns = [
     path('crear/departamento', views.crear_departamento, name = 'crear_departamento'),
     path('editar/departamento/<int:id>', views.editar_departamento, name = 'editar_departamento'),
     path('eliminar/departamento/<int:id>', views.eliminar_departamento,name='eliminar_departamento'),
-    path('mostrar/departamentos', views.ver_casas,name='ver_departamentos'),
+    path('mostrar/departamentos', views.ver_departametos,name='ver_departamentos'),
     # Rutas Persona
     path('crear/persona', views.crear_persona, name = 'crear_persona'),
     path('editar/persona/<int:id>', views.editar_persona, name = 'editar_persona'),

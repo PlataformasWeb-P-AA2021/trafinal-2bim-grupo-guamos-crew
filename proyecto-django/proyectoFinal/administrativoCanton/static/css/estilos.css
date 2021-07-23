@@ -2,10 +2,48 @@
 body {
     /*background: #FEFEFD;*/
     background: #FEFEFD;
-    padding: 30px;
+    padding: 0.5rem;
   
   }
+
+    /*
+  Custom css
+  */
+
+  .tableCenter{
+    margin: auto;
+  }
+
+  .initialImages{
+    width: 50%;
+  } 
   
+.headerPage{
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 2rem;
+}
+
+.topPage{
+  display: grid;
+  gap: 11rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem,2fr));
+}
+
+.navbarTop{
+  position: absolute;
+  background-color: #034275;
+  padding: 5px;
+  
+  left: 12px;
+  list-style:none;
+  
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  margin:0px;
+}
+
   header {
     background: #034275;
     color: #FFF;
@@ -14,6 +52,8 @@ body {
   
   section {
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
   
   th, td {
@@ -21,8 +61,29 @@ body {
     border-bottom: 1px solid black;
   }
   
-  tr:hover {
-    background-color: #258EAD;
+  th:hover {
+    background-color: #F0C61A;
+    color: #ffffff;
+    text-decoration: none;
+
+  }
+  a, .nombre_usuario{
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  li{
+    padding: 5px 10px;
+  }
+
+  .contents{
+    padding: 5.5rem 0;
+  }
+
+  .opciones{
+    color: #000;
+    text-decoration: none;
   }
   
   input[type=text], input[type=number] {
@@ -52,48 +113,28 @@ body {
     width: 40%;
   }
   
-  .nombre_usuario {
-    color: red;
-  }
+
   
   /*Menu */
   /*
    Tomado de http://codigoprogramacion.com/cursos/html/como-hacer-un-menu-horizontal-con-html5-y-css3.html
    */
-  .top_menu ul
-  {
-    list-style:none;
-    float:left;
-    padding: 5px;
-    width:95%;
-  }
-  
-  .top_menu ul li
-  {
-    float:left;
-    margin-right:10px;
-    margin-bottom:5px;
-    text: #FFF;
-  
-  }
 
-    /*
-  Custom css
-  */
-
-  .tableCenter{
-    margin: auto;
-  }
-
-  .initialImages{
-    width: 50%;
-  } 
   
   footer{
-    background: #5E5E5E;
-    color: #FFF;
+    display: grid;
+    gap: 11rem;
+    grid-template-columns: repeat(auto-fill, minmax(30rem,2fr));
+    background: #034275;
+    color: #ffffff;
+    align-content: center;
+    justify-content: center;
   }
  
+.sectionOne{
+  align-content: center;
+  justify-content: center;
 
+}
 
 

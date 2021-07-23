@@ -20,8 +20,10 @@
     {% load socialaccount %}
     {% load account %}
   <header>
-    <img src="{% static 'images/utpl_logo.png' %}" height="10%" width="10%" alt="My image">
-    <h1> Proyecto Final Plataformas Web </h1>
+    <section class="topPage">
+      <img src="{% static 'images/utpl_logo.png' %}" alt="My image"> 
+      <h1 class = "headerPage">Proyecto Final Plataformas Web </h1>
+    </section>
     
 
     <div class="">
@@ -34,12 +36,14 @@
         {% endif %}
       </div>
     <nav class="top_menu">
-      <ul>
+      <ul class="navbarTop">
 
         {% if user.is_authenticated %}
           <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
         {% endif %}
-        <li><a href="{% url 'index' %}">inicio</a></li>
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+        <li><a href="{% url 'ver_casas' %}">Lista de Casas</a></li>
+        <li><a href="{% url 'ver_departamentos' %}">Lista de Departamentos</a></li>
         <li><a href="{% url 'crear_casa' %}">agregar Casa</a></li>
         <li><a href="{% url 'crear_departamento' %}">agregar Departamento</a></li>
         <li><a href="{% url 'crear_persona' %}">agregar Persona</a></li>
@@ -48,18 +52,17 @@
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}
           <li>[<a href="{% url 'login' %}">ingresar</a>]</li>
-          <li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
         {% endif %}
       </ul>
     </nav>
   </header>
-  <section>
+  <section class="contents">
       {% block content %}
       {% endblock %}
   </section>
 
     <footer>
-      <h3>Loja-Ecuador</h3>
+      <h3 class ="sectionOne">Loja-Ecuador</h3>
       <h3> Realizado por: Edgar Guamo M,<br>
         &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
         Brandon Vega S.</h3>
@@ -67,3 +70,4 @@
     </footer>
   </body>
 </html>
+  

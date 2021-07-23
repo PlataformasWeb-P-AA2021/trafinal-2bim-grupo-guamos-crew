@@ -31,10 +31,14 @@
     <td> {{e.cuartos_casa}}</td>
     <td> {{e.pisos}}</td>
     <td> {{e.barrio}}</td>
-    <td> <a href="{% url 'editar_casa' e.id %}">editar</a> <br>
-      <a href="{% url 'eliminar_casa' e.id %}"
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
-      eliminar</a>
+    <td> <a href="{% url 'editar_casa' e.id %}" class="opciones">
+      editar
+      </a> 
+      <br>
+      <a href="{% url 'eliminar_casa' e.id %}" class="opciones"
+        onclick="return confirm('¿Está seguro de la eliminación?')" >
+        eliminar
+      </a>
     </td>
 
   </tr>
