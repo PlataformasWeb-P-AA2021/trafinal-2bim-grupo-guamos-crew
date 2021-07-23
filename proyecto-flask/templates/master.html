@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    {% endblock %}
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <!-- paso 5-->
+    {% block header %}
+  <header>
+    <img src="{{ url_for('static', filename='images/utpl_logo.png') }}" height="10%" width="10%" alt="My image">
+    <h1> Proyecto Final Plataformas Web </h1>
+
+    <nav class="top_menu">
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('las_casas') }}">Ver Casas</a></li>
+        <li><a href="{{ url_for('los_departamentos') }}">Ver Departamentos</a></li>
+        <li><a href="{{ url_for('las_personas') }}">Ver Personas</a></li>
+        <li><a href="{{ url_for('los_barrios') }}">Ver Barrios</a></li>
+      </ul>
+    </nav>
+  </header>
+    {% endblock %}
+  <section>
+      {% block content %}
+      {% endblock %}
+  </section>
+
+    <footer>
+      <h3>Loja-Ecuador</h3>
+      <h3> Realizado por: Edgar Guamo M,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        Brandon Vega S.</h3>
+      <h3> Fecha de desarrollo: 19/07/2021 </h3>
+    </footer>
+  </body>
+</html>

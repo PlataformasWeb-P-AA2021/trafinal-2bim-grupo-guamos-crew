@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Proyecto Final
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<table class="tableCenter" style="margin: auto;">
+  <tr>
+    <th>Casas</th>
+    <th>Departamentos</th>
+    <th>Propietarios</th>
+    <th>Barrios</th>
+  </tr>
+  <tr>
+    <th>
+      <a href="{{ url_for('las_casas') }}"><img src="{{ url_for('static', filename='images/casa.png') }}" alt="casas" class="initialImages" style="width: 50%; padding: 0;"></a>
+    </th>
+    <th>
+      <a href="{{ url_for('los_departamentos') }}"><img src="{{ url_for('static', filename='images/departamentos.png') }}" alt="departamentos"></a>
+    </th>
+    <th>
+      <a href="{{ url_for('las_personas') }}"><img src="{{ url_for('static', filename='images/personas.png') }}" alt="personas" style="width: 50%; padding: 0;"></a>
+    </th>
+    <th>
+      <a href="{{ url_for('los_barrios') }}"><img src="{{ url_for('static', filename='images/barrios.png') }}" alt="barrios" style="width: 50%; padding: 0;"></a>
+    </th>
+  </tr>
+</table>
+{% endblock %}

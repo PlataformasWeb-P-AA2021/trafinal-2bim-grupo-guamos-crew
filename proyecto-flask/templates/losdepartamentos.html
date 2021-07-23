@@ -1,24 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Departamentos</title>
-  </head>
-  <body>
-    <h5>Listado de departametos</h5>
+{% extends "master.html" %}
 
-    {% for d in datos %}
+{% block title %}
+  Listado de Departamentos
+{% endblock %}
 
-    <ol>
-      <li><b>Propietario: </b>{{e['prop_dept']}}</li>
-      <li><b>Direccion: </b>{{e['direccion_dept']}}</li>
-      <li><b>Valor: </b>{{e['valor_dept']}}</li>
-      <li><b>Cuartos: </b>{{e['cuartos_dept]}}</li>
-      <li><b>Mensualidad: </b>{{d['mensualidad']}}</li>
-      <li><b>Barrio: </b>{{d['barrio']}}</li>
-    </ol>
-    <hr>
-    {% endfor%}
-  </body>
-</html>
+{% block content %}
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Propietario</th>
+      <th>Dirección</th>
+      <th>Valor</th>
+      <th>Número de cuartos</th>
+      <th>Mensualidad</th>
+      <th>Barrio</th>
+    </tr>
+  </thead>
+
+  {% for e in datos %}
+  <tr>
+    <td> {{e.prop_dept}}</td>
+    <td> {{e.direccion_dept}}</td>
+    <td> {{e.valor_dept}}</td>
+    <td> {{e.cuartos_dept}}</td>
+    <td> {{e.mensualidad}}</td>
+    <td> {{e.barrio}}</td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}

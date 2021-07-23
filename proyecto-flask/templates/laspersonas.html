@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Personas</title>
-  </head>
-  <body>
-    <h5>Listado de Personas</h5>
+{% extends "master.html" %}
 
-    {% for p in personas %}
+{% block title %}
+  Listado de Propietarios
+{% endblock %}
 
-    <ol>
-      <li><b>Nombres: </b>{{p['nombres']}}</li>
-      <li><b>Apellidos: </b>{{p['apellidos']}}</li>
-      <li><b>Cedula: </b>{{p['cedula']}}</li>
-      <li><b>Correo: </b>{{p['correo']}}</li>
-    </ol>
-    <hr>
-    {% endfor%}
-  </body>
-</html>
+{% block content %}
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Cedula</th>
+      <th>Correo</th>
+    </tr>
+  </thead>
+
+  {% for e in personas %}
+  <tr>
+    <td> {{e.nombres}}</td>
+    <td> {{e.apellidos}}</td>
+    <td> {{e.cedula}}</td>
+    <td> {{e.correo}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}

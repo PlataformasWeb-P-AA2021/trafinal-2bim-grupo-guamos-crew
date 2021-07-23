@@ -1,25 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Casas</title>
-  </head>
-  <body>
-    <h5>Listado de Casas</h5>
+{% extends "master.html" %}
 
-    {% for d in datos %}
+{% block title %}
+  Listado de Casas
+{% endblock %}
 
-    <ol>
-      <li><b>Propietarios: </b>{{d['prop_casa']}}</li>
-      <li><b>Direccion: </b>{{d['direccion_casa']}}</li>
-      <li><b>Valor: </b>{{d['valor_casa']}}</li>
-      <li><b>Color: </b>{{d['color']}}</li>
-      <li><b>Cuartos: </b>{{d['cuartos_casa']}}</li>
-      <li><b>Pisos: </b>{{d['pisos']}}</li>
-      <li><b>Barrio: </b>{{d['barrio']}}</li>
-    </ol>
-    <hr>
-    {% endfor%}
-  </body>
-</html>
+{% block content %}
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Propietario</th>
+      <th>Dirección</th>
+      <th>Valor</th>
+      <th>Color</th>
+      <th>Número de cuartos</th>
+      <th>Pisos</th>
+      <th>Barrio</th>
+    </tr>
+  </thead>
+
+  {% for e in datos %}
+  <tr>
+    <td> {{e.prop_casa}}</td>
+    <td> {{e.direccion_casa}}</td>
+    <td> {{e.valor_casa}}</td>
+    <td> {{e.color}}</td>
+    <td> {{e.cuartos_casa}}</td>
+    <td> {{e.pisos}}</td>
+    <td> {{e.barrio}}</td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}
