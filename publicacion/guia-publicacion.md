@@ -43,3 +43,43 @@ Ahora, se debe crear el archivo de configuración de Gunicorn, de la misma forma
     mkdir conf
     nano conf/gunicorn_config.py
 
+## Configuracion de Gunicorn
+Para que gunicorn pueda funcionar de una manera correcta, se debe crear un archivo de configuración que tenga en cuenta los siguientes variables:
+- ****Command******************* Empleado para especificar la dirección en donde esta gunicorn, para este proyecto en especifico, se debe especificar la rutata de gunicorn de nuestro entorno virtual
+- *pythonpath* ****Empleado para especificar la ruta del proyecto de django, con esto guicorn sabra que proyecto lanzar********
+********- *****bind* Empleado para especificar el servidor y el puerto en donde se lanzará el aplicativo, como este proyecto fue lanzado localmente se uso el localhost 127.0.0.1 y el puerto 8000 ya que este es el puerto por defecto de django
+### Importante: Si se tiene apache2 activado podría ocasionar errores
+- workers= Número de procesos que se ejecutarán en segundo plano. Por lo general se debe agregar de 2 a 4 por núcleo de servidor. 
+**insertar****** imagen**
+
+### Arranque de gunicorn
+Para poder arrancar gunicorn se debe aplicar el siguiente comando 
+**insertar imagen**
+en esta se especifica la ruta del archivo de configuración y el nombre del archivo .wsgi, el cual cumple con la función de especificar como el servidor se comunicará con el proyecto de Django
+
+## Configuración de Nginx 
+Se Debe tomar en cuenta que lo sigueintes pasos a realizar solo son necesarios en el caso de que se desee levantar otro proyecto en un puerto o ruta diferente a las estipuladas en pasos previos
+
+para iniciar el servidor nginx se debe realizar el siguiente comando
+**insertar imagen**
+se puede ingresar el comando *systemctl status nginx.service* para verificar que nginx fue levatado de manera correcta 
+Posteriormente a esto en el archivo settings.py se debe modificar la siguiente linea
+
+**insertar imagen**
+
+Con esto especificamos la ruta de archivos estáticos del proyecto.
+
+Seguidamente, se debe generar con permisos de administrador el archivo proyectoFinal en la ruta /etc/nginx/sites-available/ e ingresar la siguiente configuración:
+
+**insertar imagen **
+
+El archivo lista las variables que necesita nginx para arrancar un servidor, este esta conformado po 
+**listen 80** Puerto en donde se lanzará el servidor
+**server_name** Ruta ip del servidor
+**location** Ruta de la carpeta static
+**location->proxy_pass** especificación de la ruta de acceso
+
+Una vez generado el archivo se debe crear un enlace simbólico en la ruta /etc/nginx/sites-enabled/ esto con el fin de que si existen modificaciones en el primer archivo, el segundo tenga la misma configuración de manera inmediata
+
+Finalmente, se reinicia el servicio de nginx y estaría listo para su uso.
+Cabe recalcar que para iniciar el servidor se debe emplear el comando **arranque de gunicorn** explicado anteriormente
