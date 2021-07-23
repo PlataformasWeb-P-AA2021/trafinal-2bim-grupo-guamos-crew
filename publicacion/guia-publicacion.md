@@ -57,12 +57,6 @@ Para que gunicorn pueda funcionar de una manera correcta, se debe crear un archi
 - **bind:** Empleado para especificar el servidor y el puerto en donde se lanzará el aplicativo, como este proyecto fue lanzado localmente se uso el localhost 127.0.0.1 y el puerto 8000 ya que este es el puerto por defecto de django. 
 - **workers:** Número de procesos que se ejecutarán en segundo plano. Por lo general se debe agregar de 2 a 4 por núcleo de servidor. 
 
-Si su fincionamiento es correcto deberá aparecer las siguientes interacciones en la consola
-
-![http]
-(https://github.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-guamos-crew/blob/main/publicacion/images/arranque_gunicorn.png)
-
-
 ##### Importante: Si se tiene apache2 activado podría ocasionar errores
 
 
@@ -73,27 +67,34 @@ Para poder arrancar gunicorn se debe aplicar el siguiente comando
 
 En esta se especifica la ruta del archivo de configuración y el nombre del archivo .wsgi, el cual cumple con la función de especificar como el servidor se comunicará con el proyecto de Django
 
-## Configuración de Nginx 
+Si su fincionamiento es correcto deberá aparecer las siguientes interacciones en la consola
+
+![http](https://raw.githubusercontent.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-guamos-crew/main/publicacion/images/arranque_gunicorn.png)
+
+### Configuración de Nginx 
 Se Debe tomar en cuenta que lo sigueintes pasos a realizar solo son necesarios en el caso de que se desee levantar otro proyecto en un puerto o ruta diferente a las estipuladas en pasos previos
 
-para iniciar el servidor nginx se debe realizar el siguiente comando
-**insertar imagen**
+para iniciar el servidor nginx se debe realizar el siguiente comando:
+
+    sudo service nginx start
+
 se puede ingresar el comando *systemctl status nginx.service* para verificar que nginx fue levatado de manera correcta 
 Posteriormente a esto en el archivo settings.py se debe modificar la siguiente linea
 
-**insertar imagen**
+![http static](https://raw.githubusercontent.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-guamos-crew/main/publicacion/images/configuracion_static_url.png)
 
 Con esto especificamos la ruta de archivos estáticos del proyecto.
 
 Seguidamente, se debe generar con permisos de administrador el archivo proyectoFinal en la ruta /etc/nginx/sites-available/ e ingresar la siguiente configuración:
 
-**insertar imagen **
+![http nginx](https://raw.githubusercontent.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-guamos-crew/main/publicacion/images/configuracion_ruta_gunicorn.png)
 
-El archivo lista las variables que necesita nginx para arrancar un servidor, este esta conformado po 
-**listen 80** Puerto en donde se lanzará el servidor
-**server_name** Ruta ip del servidor
-**location** Ruta de la carpeta static
-**location->proxy_pass** especificación de la ruta de acceso
+El archivo lista las variables que necesita nginx para arrancar un servidor, este esta conformado por:
+
+- **listen 80** Puerto en donde se lanzará el servidor
+- **server_name** Ruta ip del servidor
+- **location** Ruta de la carpeta static
+- **location->proxy_pass** especificación de la ruta de acceso
 
 Una vez generado el archivo se debe crear un enlace simbólico en la ruta /etc/nginx/sites-enabled/ esto con el fin de que si existen modificaciones en el primer archivo, el segundo tenga la misma configuración de manera inmediata
 
