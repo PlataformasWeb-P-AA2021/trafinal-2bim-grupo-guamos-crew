@@ -45,17 +45,33 @@ Ahora, se debe crear el archivo de configuración de Gunicorn, de la misma forma
 
 ## Configuracion de Gunicorn
 Para que gunicorn pueda funcionar de una manera correcta, se debe crear un archivo de configuración que tenga en cuenta los siguientes variables:
-- ****Command******************* Empleado para especificar la dirección en donde esta gunicorn, para este proyecto en especifico, se debe especificar la rutata de gunicorn de nuestro entorno virtual
-- *pythonpath* ****Empleado para especificar la ruta del proyecto de django, con esto guicorn sabra que proyecto lanzar********
-********- *****bind* Empleado para especificar el servidor y el puerto en donde se lanzará el aplicativo, como este proyecto fue lanzado localmente se uso el localhost 127.0.0.1 y el puerto 8000 ya que este es el puerto por defecto de django
-### Importante: Si se tiene apache2 activado podría ocasionar errores
-- workers= Número de procesos que se ejecutarán en segundo plano. Por lo general se debe agregar de 2 a 4 por núcleo de servidor. 
-**insertar****** imagen**
+
+    command = '/home/edgarfgm/Documentos/plataformasWeb/bimestre2/platweb/bin/gunicorn'
+    pythonpath = '/home/edgarfgm/Documentos/plataformasWeb/bimestre2/trafinal-2bim-grupo-guamos-crew/proyecto-django/proyectoFinal'
+    bind = '127.0.0.1:8000'
+    workers = 3
+
+##### Descripción
+- **Command:** Señala la dirección en donde esta gunicorn, para este proyecto en especifico, se debe especificar la ruta de gunicorn ubicado en el entorno virtual
+- **pythonpath:** Empleado para especificar la ruta del proyecto de django, con esto guicorn sabra que proyecto lanzar
+- **bind:** Empleado para especificar el servidor y el puerto en donde se lanzará el aplicativo, como este proyecto fue lanzado localmente se uso el localhost 127.0.0.1 y el puerto 8000 ya que este es el puerto por defecto de django. 
+- **workers:** Número de procesos que se ejecutarán en segundo plano. Por lo general se debe agregar de 2 a 4 por núcleo de servidor. 
+
+Si su fincionamiento es correcto deberá aparecer las siguientes interacciones en la consola
+
+![http]
+(https://github.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-guamos-crew/blob/main/publicacion/images/arranque_gunicorn.png)
+
+
+##### Importante: Si se tiene apache2 activado podría ocasionar errores
+
 
 ### Arranque de gunicorn
 Para poder arrancar gunicorn se debe aplicar el siguiente comando 
-**insertar imagen**
-en esta se especifica la ruta del archivo de configuración y el nombre del archivo .wsgi, el cual cumple con la función de especificar como el servidor se comunicará con el proyecto de Django
+
+    gunicorn -c ~/Documentos/plataformasWeb/bimestre2/conf/gunicorn_config.py proyectoFinal.wsgi
+
+En esta se especifica la ruta del archivo de configuración y el nombre del archivo .wsgi, el cual cumple con la función de especificar como el servidor se comunicará con el proyecto de Django
 
 ## Configuración de Nginx 
 Se Debe tomar en cuenta que lo sigueintes pasos a realizar solo son necesarios en el caso de que se desee levantar otro proyecto en un puerto o ruta diferente a las estipuladas en pasos previos
